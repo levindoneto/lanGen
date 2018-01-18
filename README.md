@@ -6,6 +6,11 @@ __Author__
 
 [Levindo Gabriel Taschetto Neto](http://levindoneto.github.io/).
 
+## How to deploy
+
+```terminal
+$ pip install docopt
+```
 
 ## Data
 
