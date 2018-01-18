@@ -18,6 +18,6 @@ def getNGramFrequencies(ngrams):
         if (token in frequencies):
             newFrequency = str(int(frequencies[token]) + 1)
             frequencies.update({token: newFrequency})
-        else:
-            frequencies.update({token: '0'})
+        else: # Just in the first time a token is found
+            frequencies.update({token: '1'})
     return frequencies
