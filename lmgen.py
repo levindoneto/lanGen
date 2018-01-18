@@ -27,6 +27,17 @@ def main(opts):
 if __name__ == '__main__':
     #opts = docopt.docopt(__doc__)
     #print(opts)
-    print('lang: ', LangModels.test())
-    print('fragments of the text:\n', FileManagement.getTextFragments(INPUT_TEXT))
+    shakespeareCorpus = FileManagement.getTextFragments(INPUT_TEXT)
+
+    unigrams = LangModels.generateNGrams(shakespeareCorpus, 1)
+    bigrams = LangModels.generateNGrams(shakespeareCorpus, 2)
+    trigrams = LangModels.generateNGrams(shakespeareCorpus, 3)
+    quadrigrams = LangModels.generateNGrams(shakespeareCorpus, 4)
+
+    # Tests - N-Grams' Generation
+    print('Unigrams:\n', unigrams, '\n\n')
+    print('Bigrams:\n', bigrams, '\n\n')
+    print('Trigrams:\n', trigrams, '\n\n')
+    print('Quadrigrams:\n', quadrigrams, '\n\n')
+
     #main(opts)
