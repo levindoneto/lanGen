@@ -34,10 +34,22 @@ if __name__ == '__main__':
     trigrams = LangModels.generateNGrams(shakespeareCorpus, 3)
     quadrigrams = LangModels.generateNGrams(shakespeareCorpus, 4)
 
+    unigramFreq = LangModels.getNGramFrequencies(unigrams)
+    bigramsFreq = LangModels.getNGramFrequencies(bigrams)
+    trigramsFreq = LangModels.getNGramFrequencies(trigrams)
+    quadrigramsFreq = LangModels.getNGramFrequencies(quadrigrams)
     # Tests - N-Grams' Generation
+    '''
     print('Unigrams:\n', unigrams, '\n\n')
     print('Bigrams:\n', bigrams, '\n\n')
     print('Trigrams:\n', trigrams, '\n\n')
     print('Quadrigrams:\n', quadrigrams, '\n\n')
-
+    '''
+    # Tests - Tokens' Frequencies
+    '''
+    print('Unigrams Frequencies:\n', unigramFreq, '\n\n')
+    print('Bigrams Frequencies:\n', bigramsFreq, '\n\n')
+    print('Trigrams Frequencies:\n', trigramsFreq, '\n\n')
+    print('Quadrigrams Frequencies:\n', quadrigramsFreq, '\n\n')
+    '''
     #main(opts)
