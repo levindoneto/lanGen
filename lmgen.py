@@ -8,7 +8,7 @@ Options:
   -l <path>, --load_model <path>  The path to load the model from
 
 
-After generating the model/ loading it from a pickle file this program
+After generating the model and loading it from a pickle file this program
 provides an interactive shell.
 Here either just enter can be pressed in order to generate a sentence or
 a prefix can be inserted for being used as seed to generate only sentences
@@ -17,12 +17,20 @@ that start with the given prefix.
 
 import sys
 import docopt
-import management.AppManagement as Management
+import management.FileManagement as FileManagement
 import gui.Shell as Shell
 
-def main(args):
-    Shell.menu()
-    #Management.manager(n, inFile, outFile)
+DEFAULT_PICKLE = "tests/shakespeare.txt"
 
+def main(args):
+    try:
+        pickleFile = args[1]
+    except:
+        pickleFile = DEFAULT_PICKLE
+    fragments = FileManagement.getTextFragments(pickleFile)
+    Shell.menu()
+    while (True):
+        options = Shell.getListOptions()
+        print(options)
 if __name__ == '__main__':
     main(sys.argv)

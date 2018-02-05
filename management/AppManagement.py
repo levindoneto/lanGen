@@ -7,8 +7,7 @@ Function that manages the creation of directories and files.
             String: input file's path, output file's path.
 @Return: Void, it only saves the model in the file specified by pathOut.
 '''
-def manager(nProb, pathIn, pathOut):
-    corpus = FileManagement.getTextFragments(pathIn)
-    ngrams = LangModels.generateNGrams(shakespeareCorpus, nProb)
+def manager(corpus, nProb, pathIn, pathOut):
+    ngrams = LangModels.generateNGrams(corpus, nProb)
     frequencies = LangModels.getNGramFrequencies(ngrams)
     probabilities = LangModels.getNGramProbabilities(ngrams, frequencies)
