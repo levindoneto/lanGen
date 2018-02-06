@@ -20,4 +20,4 @@ def manager(corpus, opts):
     ngrams = LangModels.generateNGrams(corpus, nProb)
     firstGram = random.choice(ngrams)
     frequencies = LangModels.getNGramFrequencies(ngrams)
-    probs = LangModels.getNGramProbabilities(ngrams, frequencies)
+    occurs = LangModels.getNGramOccurances(ngrams)

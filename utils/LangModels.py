@@ -1,3 +1,4 @@
+import nltk
 from math import log2
 
 ''' Function for creating n-grams.
@@ -24,12 +25,45 @@ def getNGramFrequencies(ngrams):
             frequencies.update({token: '1'})
     return frequencies
 
-''' Function for getting probabilities of n-grams.
-    @Parameters: Tuple: N-Grams, Dictionary: frequencies.
-    @Return: Dictionary: probabilities.
+''' Function for adding an occurance of a gram considering the one which is
+    following it.
+    probabilities: {
+        word_0: {
+            next_0: occurance_0, ...
+            next_n: occurance_n
+        }, ...
+        word_n: {
+            next_0: occurance_0, ...
+            next_n: occurance_n
+        },
+    }
+    @Parameters: String: currentWord, nextWord
+                 Dictionary: occurances.
+    @Return: Dictionary: new occurances.
 '''
-def getNGramProbabilities(ngrams, frequencies):
-    probs = {}
-    for key in ngrams:
-        probs[key] = -log2(int(frequencies[key])/len(ngrams))
-    return probs
+def addOccurance(currentWord, nextWord, occurances):
+    occurs = occurances
+    if (currentWord in occurs):
+        if (nextWord in occurs[currentWord]):
+            aux = int(occurs[currentWord][nextWord])
+            aux += 1
+            occurs[currentWord][nextWord] = str(aux)
+        else:
+            occurs[currentWord].update({nextWord : "1"})
+    else:
+        occurs[currentWord] = {nextWord : "1"}
+    return occurs
+
+''' Function for getting occurances of n-grams (word by the previous one).
+    @Parameters: Tuple: N-Grams.
+    @Return: Dictionary: occurances.
+'''
+def getNGramOccurances(ngrams):
+    occurs = {}
+    currentWord = 0
+    nextWord = 1
+    for i in range(len(ngrams) - 1):
+        occurs = addOccurance(ngrams[currentWord], ngrams[nextWord], occurs)
+        currentWord += 1
+        nextWord += 1
+    return occurs

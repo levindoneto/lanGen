@@ -15,7 +15,6 @@ def getListOptions():
     listOpts.append('')
     options = input("$ ")
     options = options.split()
-    print(options)
     if (options[0] != 'lm'):
         print("Invalid option\nIt shall be lm")
     else:
