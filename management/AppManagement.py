@@ -1,6 +1,7 @@
 from utils import LangModels
 from management import FileManagement
 import random
+import pickle
 
 NGRAM = 0
 INFILE = 1
@@ -17,6 +18,5 @@ def manager(corpus, opts):
     pathIn = opts[INFILE]
     pathOut = opts[OUTFILE]
     ngrams = LangModels.generateNGrams(corpus, nProb)
-    print("Start in: ", random.choice(ngrams))
+    firstGram = random.choice(ngrams)
     frequencies = LangModels.getNGramFrequencies(ngrams)
-    #probabilities = LangModels.getNGramProbabilities(ngrams, frequencies)

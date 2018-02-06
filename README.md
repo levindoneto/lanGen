@@ -10,8 +10,16 @@ __Author__
 
 ```terminal
 $ pip install docopt
+$ pip install nltk
 ```
 
-## Data
+## How to use
 
-[1] The data is located in this directory: /mount/studenten/programmierkurs/projects/lmgen/data/
+```terminal
+$ pip install docopt
+$ pip install nltk
+```
+
+## License
+
+MIT License. Click [here](LICENSE.md) for more information about this license.

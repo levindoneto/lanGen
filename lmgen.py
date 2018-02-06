@@ -24,6 +24,19 @@ import gui.Shell as Shell
 DEFAULT_CORPUS = "tests/shakespeare.txt"
 
 def main(args):
+    import nltk
+
+    word_seq = ['foo', 'foo', 'foo', 'foo', 'bar', 'baz']
+
+    # Set up a trigram model, nothing special
+    est = lambda freqdist, bins: nltk.probability.LidstoneProbDist(freqdist, 0.2, bins)
+    model = nltk.model.NgramModel(3, word_seq, True, True, est, 3)
+
+    # Consider the ngram ['bar', 'baz', 'foo']
+    # We've never seen this before, so the trigram model will fall back
+    context = ('bar', 'baz',)
+    word = 'foo'
+    print ("P(foo | bar, baz) = " + str(model.prob(word,context)))
     try:
         pickleFile = args[1]
     except:
@@ -33,6 +46,6 @@ def main(args):
     while True:
         options = Shell.getListOptions()
         AppManagement.manager(fragments, options)
-        
+
 if __name__ == '__main__':
     main(sys.argv)
