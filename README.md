@@ -16,9 +16,11 @@ $ pip install nltk
 ## How to use
 
 ```terminal
-$ pip install docopt
-$ pip install nltk
+$ python lmgen.py InputFile
 ```
+
+**InputFile** is optional.
+If an input is not given, [this](tests/shakespeare.txt) default corpus is used.
 
 ## License
 
