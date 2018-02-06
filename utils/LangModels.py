@@ -1,3 +1,5 @@
+from math import log2
+
 ''' Function for creating n-grams.
     @Parameters: List: sequenceuence, Integer: n (type of the n-gram).
     @Return: List of n-grams.
@@ -27,6 +29,7 @@ def getNGramFrequencies(ngrams):
     @Return: Dictionary: probabilities.
 '''
 def getNGramProbabilities(ngrams, frequencies):
-    print("Im here")
-    probabilities = [cgram/freq for cgram, freq in zip(ngrams, frequencies)]
-    #ngram_prob = sum(math.log(prob, 10) for prob in probabilities)
+    probs = {}
+    for key in ngrams:
+        probs[key] = -log2(int(frequencies[key])/len(ngrams))
+    return probs

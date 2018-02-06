@@ -1,10 +1,8 @@
-# lmGen | Natural language generation using an n-gram language model
+# lanGen | Natural language generation using an n-gram language model
 
-N-Gram language model that learns n-gram probabilities from a given corpus.
+N-Gram language model that learns n-gram probabilities from a given corpus and generates new sentences from it.
 
-__Author__
-
-[Levindo Gabriel Taschetto Neto](http://levindoneto.github.io/).
+__Author__: [Levindo Gabriel Taschetto Neto](http://levindoneto.github.io/).
 
 ## How to deploy
 
