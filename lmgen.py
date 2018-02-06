@@ -18,19 +18,21 @@ that start with the given prefix.
 import sys
 import docopt
 import management.FileManagement as FileManagement
+import management.AppManagement as AppManagement
 import gui.Shell as Shell
 
-DEFAULT_PICKLE = "tests/shakespeare.txt"
+DEFAULT_CORPUS = "tests/shakespeare.txt"
 
 def main(args):
     try:
         pickleFile = args[1]
     except:
-        pickleFile = DEFAULT_PICKLE
+        pickleFile = DEFAULT_CORPUS
     fragments = FileManagement.getTextFragments(pickleFile)
     Shell.menu()
-    while (True):
+    while True:
         options = Shell.getListOptions()
-        print(options)
+        AppManagement.manager(fragments, options)
+        
 if __name__ == '__main__':
     main(sys.argv)
