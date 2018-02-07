@@ -16,6 +16,7 @@ that start with the given prefix.
 '''
 
 import sys
+import os
 import docopt
 import management.FileManagement as FileManagement
 import management.AppManagement as AppManagement
@@ -24,6 +25,7 @@ import gui.Shell as Shell
 DEFAULT_CORPUS = "tests/shakespeare.txt"
 
 def main(args):
+    os.system("cls")
     try:
         pickleFile = args[1]
     except:

@@ -31,12 +31,11 @@ def getNGramFrequencies(ngrams):
 '''
 def getNGramProbabilities(occurances):
     probs = {}
-    auxNext = {}
     for pred in occurances:
+        auxNext = {}
         for nextW in occurances[pred]:
             auxNext[nextW] = str(int(occurances[pred][nextW]) / len(occurances[pred]))
-        probs.update({pred: auxNext})
-        auxNext.clear()
+        probs[pred] = auxNext
     return probs
 
 ''' Function for adding an occurance of a gram considering the one which is

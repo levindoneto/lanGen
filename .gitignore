@@ -2,3 +2,4 @@ __pycache__/*
 gui/__pycache__/*
 management/__pycache__/*
 utils/__pycache__/*
+*.pickle

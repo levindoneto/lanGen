@@ -21,13 +21,13 @@ def getTextFragments(path):
     @Return: Void.
 '''
 def savePickleFile(fileName, dictionary):
-    with open(fileName + ".pickle", "wb") as fp:
+    with open(fileName, "wb") as fp:
         pickle.dump(dictionary, fp, protocol = pickle.HIGHEST_PROTOCOL)
 
 ''' Function for loading a pickle file into a dictionary.
     @Parameters: String: path of the file.
     @Return: Dictionary: loaded cata structure.
 '''
-def loadPickleData(filePath, dictionary):
+def loadPickleData(filePath):
     with open(filePath, "rb") as fb:
         return pickle.load(fb)

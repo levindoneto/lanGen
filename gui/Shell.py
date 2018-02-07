@@ -42,6 +42,11 @@ def menu():
     print(
         '''Usage:
           lm (-n INT [-s <path>]|-l <path>)
+          example:
+              lm (-n 1 [-s in.pickle] -l in.pickle)
+              -> Unigrams
+              -> Saving in the file in.pickle
+              -> Loading the file in.pickle
 
         Options:
           -n INT                          The n used to get n-gram probabilities

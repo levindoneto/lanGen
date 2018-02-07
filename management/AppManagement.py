@@ -21,3 +21,9 @@ def manager(corpus, opts):
     firstGram = random.choice(ngrams)
     frequencies = LangModels.getNGramFrequencies(ngrams)
     occurs = LangModels.getNGramOccurances(ngrams)
+
+    probs = LangModels.getNGramProbabilities(occurs)
+    FileManagement.savePickleFile(pathOut, probs)
+    p = FileManagement.loadPickleData(pathIn)
+
+    print("new dict\n", p, "\n\n")
