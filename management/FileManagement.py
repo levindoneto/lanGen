@@ -16,9 +16,18 @@ def getTextFragments(path):
     return tuple(text) # Tuple with each element being a fragment from the text
 
 ''' Function for putting a dictionary in a pickle file.
-    @Parameters: String: Name of the file, Dictionary: Probabilities.
+    @Parameters: String: name of the file (without the format),
+                 Dictionary: data structure to be stored.
     @Return: Void.
 '''
 def savePickleFile(fileName, dictionary):
     with open(fileName + ".pickle", "wb") as fp:
-        pickle.dump(dictionary, fp, protocol=pickle.HIGHEST_PROTOCOL)
+        pickle.dump(dictionary, fp, protocol = pickle.HIGHEST_PROTOCOL)
+
+''' Function for loading a pickle file into a dictionary.
+    @Parameters: String: path of the file.
+    @Return: Dictionary: loaded cata structure.
+'''
+def loadPickleData(filePath, dictionary):
+    with open(filePath, "rb") as fb:
+        return pickle.load(fb)

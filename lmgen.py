@@ -23,7 +23,6 @@ import gui.Shell as Shell
 
 DEFAULT_CORPUS = "tests/shakespeare.txt"
 
-
 def main(args):
     try:
         pickleFile = args[1]
