@@ -26,7 +26,7 @@ def getNGramFrequencies(ngrams):
     return frequencies
 
 ''' Function for getting probabilities of n-grams (word by the previous one).
-    @Parameters: Dict: Occurance.
+    @Parameters: Dict: Occurances.
     @Return: Dictionary: Probabilities.
 '''
 def getNGramProbabilities(occurances):
