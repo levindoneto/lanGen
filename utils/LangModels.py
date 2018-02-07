@@ -25,6 +25,20 @@ def getNGramFrequencies(ngrams):
             frequencies.update({token: '1'})
     return frequencies
 
+''' Function for getting probabilities of n-grams (word by the previous one).
+    @Parameters: Dict: Occurance.
+    @Return: Dictionary: Probabilities.
+'''
+def getNGramProbabilities(occurances):
+    probs = {}
+    auxNext = {}
+    for pred in occurances:
+        for nextW in occurances[pred]:
+            auxNext[nextW] = str(int(occurances[pred][nextW]) / len(occurances[pred]))
+        probs.update({pred: auxNext})
+        auxNext.clear()
+    return probs
+
 ''' Function for adding an occurance of a gram considering the one which is
     following it.
     probabilities: {
