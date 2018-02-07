@@ -20,6 +20,7 @@ import os
 import docopt
 import management.FileManagement as FileManagement
 import management.AppManagement as AppManagement
+import management.SentenceGenerationManagement as SentenceGenerationManagement
 import gui.Shell as Shell
 
 DEFAULT_CORPUS = "tests/shakespeare.txt"
@@ -34,7 +35,9 @@ def main(args):
     Shell.menu()
     while True:
         options = Shell.getListOptions()
-        AppManagement.manager(fragments, options)
+        ngrams = AppManagement.manager(fragments, options)
+        options = Shell.showSentencesInterface()
+        SentenceGenerationManagement.manager(ngrams)
 
 if __name__ == '__main__':
     main(sys.argv)

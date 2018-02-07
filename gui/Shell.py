@@ -58,3 +58,21 @@ def menu():
 
         '''
     )
+
+def showSentencesInterface():
+    print(
+        '''Sentences Generator
+
+        Usage:
+          - Enter with enter for starting with a random word
+          - Enter with a prefix/word for starting wiht a specific word
+
+        Options:
+          - [ENTER] for putting more words into the sentence
+          - [ESC] for stopping the geneation and end sentence
+          - [s] for saving the context into the loaded file
+
+        Exit:
+          [CTRL] + [c]
+        '''
+    )
