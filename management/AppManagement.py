@@ -22,8 +22,9 @@ def manager(corpus, opts):
     frequencies = LangModels.getNGramFrequencies(ngrams)
     occurs = LangModels.getNGramOccurances(ngrams)
 
-    probs = LangModels.getNGramProbabilities(occurs)
-    FileManagement.savePickleFile(pathOut, probs)
-    p = FileManagement.loadPickleData(pathIn)
-
-    print("new dict\n", p, "\n\n")
+    if (pathIn == ""): # The user has not loaded a pickle file with the probabilities
+        probs = LangModels.getNGramProbabilities(occurs)
+        if (pathOut != ""): # The user wants to save the pickle file with the probabilities
+            FileManagement.savePickleFile(pathOut, probs)
+    else:
+        probs = FileManagement.loadPickleData(pathIn)
