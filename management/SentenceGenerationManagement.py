@@ -34,6 +34,7 @@ def manager(ngrams, probabilities):
     sentence = ''
     firstGram = getFirstGram(ngrams)
     sentence += Formatting.formatNGram(firstGram) + ' '
+    sys.stdout.write(" " + Formatting.formatNGram(firstGram))
     i = ''
     maxGram = max(probabilities[firstGram])
     sentence += Formatting.formatNGram(maxGram) + ' '
@@ -45,8 +46,8 @@ def manager(ngrams, probabilities):
             if (key == ENTER):  # ord('a')
                 sys.stdout.flush()
                 maxGram = max(probabilities[maxGram])
-                sentence += Formatting.formatNGram(maxGram) + ' '
-                sys.stdout.write(" " + Formatting.formatNGram(maxGram))
+                sentence += Formatting.formatNGram(maxGram[-1]) + ' '
+                sys.stdout.write(" " + Formatting.formatNGram(maxGram[-1]))
             elif (key == ESC):  # escape key
                 break
     print("\n\nFormatted sentence: ", sentence)
