@@ -16,7 +16,7 @@ Function for obtaining the first gram for starting a sentence.
 @Return: Tuple: first gram to start a phrase.
 '''
 def getFirstGram(ngrams):
-    gram = input("> ")
+    gram = input("\n> ")
     if (gram == ""):
         return random.choice(ngrams)
     else:
@@ -50,20 +50,20 @@ def manager(ngrams, probabilities):
     while (True):
         if msvcrt.kbhit():
             key = ord(System.getKey())
-            if (key == ENTER):  # ord('a')
+            if (key == ENTER):
                 sys.stdout.flush()
-                maxGram = max(probabilities[maxGram])
+                if (Formatting.formatNGram(maxGram) != max(probabilities[maxGram])[-1]):
+                    maxGram = max(probabilities[maxGram])
+                else:
+                    maxGram = random.choice(ngrams)
                 context += maxGram
                 prob *= float(probabilities[maxGram][max(probabilities[maxGram])])
                 sentence += Formatting.formatNGram(maxGram[-1]) + ' '
                 sys.stdout.write(" " + Formatting.formatNGram(maxGram[-1]))
             elif (key == ESC):  # escape key
-                break
+                context = ()
+                prob = 0
+                manager(ngrams, probabilities)
             elif (key == ALT):
                 FileManagement.saveContext(filename, context, str(prob))
     print("\n\nFormatted sentence: ", sentence)
-    if (input()):
-        context = ()
-        prob = 0
-        manager(ngrams, probabilities)
-    # save context
