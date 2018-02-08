@@ -37,4 +37,4 @@ def manager(corpus, opts):
             FileManagement.savePickleFile(pathOut, probs)
     else:
         probs = FileManagement.loadPickleData(pathIn)
-    return ngrams
+    return ngrams, probs

@@ -35,9 +35,10 @@ def main(args):
     Shell.menu()
     while True:
         options = Shell.getListOptions()
-        ngrams = AppManagement.manager(fragments, options)
+        ngrams, probs = AppManagement.manager(fragments, options)
+        os.system("cls")
         options = Shell.showSentencesInterface()
-        SentenceGenerationManagement.manager(ngrams)
+        SentenceGenerationManagement.manager(ngrams, probs)
 
 if __name__ == '__main__':
     main(sys.argv)

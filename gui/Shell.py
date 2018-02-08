@@ -40,39 +40,43 @@ def getListOptions():
 '''
 def menu():
     print(
-        '''Usage:
-          lm (-n INT [-s <path>]|-l <path>)
-          example:
-              lm (-n 1 [-s in.pickle] -l in.pickle)
-              -> Unigrams
-              -> Saving in the file in.pickle
-              -> Loading the file in.pickle
-
-        Options:
-          -n INT                          The n used to get n-gram probabilities
-          -s <path>, --save_model <path>  The path to save the model to
-          -l <path>, --load_model <path>  The path to load the model from
-
-        Exit:
-          [CTRL] + [c]
-
+        '''                                                                                 |
+        Usage:                                                                   |
+          lm (-n INT [-s <path>]|-l <path>)                                      |
+          Example:                                                               |
+              lm (-n 1 [-s in.pickle] -l in.pickle)                              |
+              -> Unigrams                                                        |
+              -> Saving in the file in.pickle                                    |
+              -> Loading the file in.pickle                                      |
+                                                                                 |
+        Options:                                                                 |
+          -n INT                          The n used to get n-gram probabilities |
+          -s <path>, --save_model <path>  The path to save the model to          |
+          -l <path>, --load_model <path>  The path to load the model from        |
+                                                                                 |
+        Exit:                                                                    |
+          [CTRL] + [c]                                                           |
+_________________________________________________________________________________+
         '''
     )
 
 def showSentencesInterface():
     print(
-        '''Sentences Generator
-
-        Usage:
-          - Enter with enter for starting with a random word
-          - Enter with a prefix/word for starting wiht a specific word
-
-        Options:
-          - [ENTER] for putting more words into the sentence
-          - [ESC] for stopping the geneation and end sentence
-          - [s] for saving the context into the loaded file
-
-        Exit:
-          [CTRL] + [c]
         '''
+__________________________________________________________________________________
+        Sentences Generator                                                      |
+                                                                                 |
+        Usage:                                                                   |
+          - Enter with enter for starting with a random word                     |
+          - Enter with a prefix/word for starting wiht a specific word           |
+                                                                                 |
+        Options:                                                                 |
+          - [ENTER] for putting more words into the sentence                     |
+          - [ESC] for stopping the geneation and end sentence                    |
+          - [s] for saving the context into the loaded file                      |
+                                                                                 |
+        Exit:                                                                    |
+          [CTRL] + [c]                                                           |
+_________________________________________________________________________________+
+    '''
     )
