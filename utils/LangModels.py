@@ -1,9 +1,6 @@
-import nltk
-from math import log2
-
 ''' Function for creating n-grams.
-    @Parameters: List: sequenceuence, Integer: n (type of the n-gram).
-    @Return: List of n-grams.
+    @Parameters: List: sequence, Integer: n (type of the n-gram).
+    @Return: List: n-grams.
 '''
 def generateNGrams(sequence, n):
     ngrams = []

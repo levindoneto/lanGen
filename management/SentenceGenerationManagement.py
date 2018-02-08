@@ -1,6 +1,13 @@
 import random
 import sys
 from ast import literal_eval as make_tuple
+from management import FileManagement
+from utils import Formatting
+from utils import System
+import msvcrt # for key events
+
+ESC = 27
+ENTER = 13
 
 '''
 Function for obtaining the first gram for starting a sentence.
@@ -23,19 +30,21 @@ new contexts.
 def manager(ngrams, probabilities):
     sentence = ''
     firstGram = getFirstGram(ngrams)
-    print(firstGram)
-    sentence += str(firstGram)
+    sentence += Formatting.formatNGram(firstGram) + ' '
     i = ''
     maxGram = max(probabilities[firstGram])
-    sentence += str(maxGram)
-    sys.stdout.write(str(maxGram))
-    while (i != 's' and i == ''):
-        i = input()
-        maxGram = max(probabilities[maxGram])
-        sentence += str(maxGram)
-        sys.stdout.write(str(maxGram))
-    print("\n\nSentence: ", sentence)
-    # format next gram
+    sentence += Formatting.formatNGram(maxGram) + ' '
+    sys.stdout.flush()
+    sys.stdout.write(" " + Formatting.formatNGram(maxGram))
+    while (True):
+        if msvcrt.kbhit():
+            key = ord(System.getKey())
+            if (key == ENTER):  # ord('a')
+                sys.stdout.flush()
+                maxGram = max(probabilities[maxGram])
+                sentence += Formatting.formatNGram(maxGram) + ' '
+                sys.stdout.write(" " + Formatting.formatNGram(maxGram))
+            elif (key == ESC):  # escape key
+                break
+    print("\n\nFormatted sentence: ", sentence)
     # save context
-    # again...
-    #TODO

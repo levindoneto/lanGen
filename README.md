@@ -11,6 +11,11 @@ $ pip install docopt
 $ pip install nltk
 ```
 
+## Requirements
+
+__Operating system:__ Windows.
+__Python:__ 3.0 or superior.
+
 ## How to use
 
 ```terminal
