@@ -19,7 +19,10 @@ def getFirstGram(ngrams):
     if (gram == ""):
         return random.choice(ngrams)
     else:
-        return make_tuple("('" + gram + "',)")
+        if (make_tuple("('" + gram + "',)") in ngrams):
+            return make_tuple("('" + gram + "',)")
+        else:
+            return random.choice(ngrams)
 
 '''
 Function that manages the creation of words/sentences and manipulation of the

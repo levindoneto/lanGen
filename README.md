@@ -1,6 +1,6 @@
 # lanGen | Natural language generation using an n-gram language model
 
-N-Gram language model that learns n-gram probabilities from a given corpus and generates new sentences from it.
+N-Gram language model that learns n-gram probabilities from a given corpus and generates new sentences from it based on the conditional probabilities from the generated words and phrases.
 
 __Author__: [Levindo Gabriel Taschetto Neto](http://levindoneto.github.io/).
 
@@ -13,8 +13,8 @@ $ pip install nltk
 
 ## Requirements
 
-__Operating system:__ Windows.
-__Python:__ 3.0 or superior.
+* __Operating system:__ Windows.
+* __Python:__ 3.0 or superior.
 
 ## How to use
 

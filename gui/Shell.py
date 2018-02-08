@@ -17,6 +17,7 @@ def getListOptions():
     options = options.split()
     if (options[0] != 'lm'):
         print("Invalid option\nIt shall be lm")
+        return -1
     else:
         if (options[1][0] == '(' and options[-1][-1] == ')'):
             if (options[1][1:] == "-n"):
@@ -30,8 +31,10 @@ def getListOptions():
                         listOpts[OUTFILE] = options[6][0:-1]
             else:
                 print("The option -n must used before the number of n-grams")
+                return -1
         else:
             print("The options must be between parenthesis")
+            return -1
     return listOpts
 
 ''' Function for showing the use and available options to the user.
@@ -43,11 +46,16 @@ def menu():
         '''                                                                                 |
         Usage:                                                                   |
           lm (-n INT [-s <path>]|-l <path>)                                      |
-          Example:                                                               |
+          Example 1:                                                             |
               lm (-n 1 [-s in.pickle] -l in.pickle)                              |
               -> Unigrams                                                        |
-              -> Saving in the file in.pickle                                    |
-              -> Loading the file in.pickle                                      |
+              -> Save the conditional probabilities in the file in.pickle        |
+              -> Load the conditional probabilities from the file in.pickle      |
+          Example 2:                                                             |
+              lm (-n 2 -s in.pickle)                                             |
+              -> Bigrams                                                         |
+              -> Save the conditional probabilities in the file in.pickle        |
+              -> Calculate the probabilities on the fly                          |
                                                                                  |
         Options:                                                                 |
           -n INT                          The n used to get n-gram probabilities |

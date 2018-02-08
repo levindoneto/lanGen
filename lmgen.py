@@ -35,10 +35,13 @@ def main(args):
     Shell.menu()
     while True:
         options = Shell.getListOptions()
-        ngrams, probs = AppManagement.manager(fragments, options)
-        os.system("cls")
-        options = Shell.showSentencesInterface()
-        SentenceGenerationManagement.manager(ngrams, probs)
+        if (options != -1):
+            ngrams, probs = AppManagement.manager(fragments, options)
+            os.system("cls")
+            options = Shell.showSentencesInterface()
+            SentenceGenerationManagement.manager(ngrams, probs)
+        else:
+            main(args)
 
 if __name__ == '__main__':
     main(sys.argv)
