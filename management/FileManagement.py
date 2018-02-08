@@ -31,3 +31,14 @@ def savePickleFile(fileName, dictionary):
 def loadPickleData(filePath):
     with open(filePath, "rb") as fb:
         return pickle.load(fb)
+
+''' Save the context into the loaded pickle file.
+    @Parameters: String: path of the file,
+                 List: context,
+                 Float: probability of the context.
+    @Return: Void.
+'''
+def saveContext(filePath, context, probability):
+    dictProbs = loadPickleData(filePath)
+    dictProbs.update({context: probability})
+    savePickleFile(filePath, dictProbs)

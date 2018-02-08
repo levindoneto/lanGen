@@ -8,6 +8,7 @@ import msvcrt # for key events
 
 ESC = 27
 ENTER = 13
+ALT = 18
 
 '''
 Function for obtaining the first gram for starting a sentence.
@@ -31,13 +32,19 @@ new contexts.
 @Return: Void.
 '''
 def manager(ngrams, probabilities):
+    context = ()
+    prob = 0 # initial probability of a context
     sentence = ''
     firstGram = getFirstGram(ngrams)
     sentence += Formatting.formatNGram(firstGram) + ' '
     sys.stdout.write(" " + Formatting.formatNGram(firstGram))
+    context += firstGram
+    prob += float(probabilities[firstGram][max(probabilities[firstGram])])
     i = ''
     maxGram = max(probabilities[firstGram])
     sentence += Formatting.formatNGram(maxGram) + ' '
+    context += maxGram
+    prob *= float(probabilities[maxGram][max(probabilities[maxGram])])
     sys.stdout.flush()
     sys.stdout.write(" " + Formatting.formatNGram(maxGram))
     while (True):
@@ -46,9 +53,17 @@ def manager(ngrams, probabilities):
             if (key == ENTER):  # ord('a')
                 sys.stdout.flush()
                 maxGram = max(probabilities[maxGram])
+                context += maxGram
+                prob *= float(probabilities[maxGram][max(probabilities[maxGram])])
                 sentence += Formatting.formatNGram(maxGram[-1]) + ' '
                 sys.stdout.write(" " + Formatting.formatNGram(maxGram[-1]))
             elif (key == ESC):  # escape key
                 break
+            elif (key == ALT):
+                FileManagement.saveContext(filename, context, str(prob))
     print("\n\nFormatted sentence: ", sentence)
+    if (input()):
+        context = ()
+        prob = 0
+        manager(ngrams, probabilities)
     # save context
