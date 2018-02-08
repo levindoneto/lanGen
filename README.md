@@ -23,7 +23,7 @@ $ python lmgen.py InputFile
 ```
 
 **InputFile** is optional.
-If an input is not given, [this](tests/shakespeare.txt) default corpus is used.
+If no input is given, [this](tests/shakespeare.txt) default corpus is used.
 
 ## License
 

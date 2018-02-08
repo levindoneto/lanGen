@@ -36,34 +36,34 @@ def manager(ngrams, probabilities):
     prob = 0 # initial probability of a context
     sentence = ''
     firstGram = getFirstGram(ngrams)
-    sentence += Formatting.formatNGram(firstGram) + ' '
-    sys.stdout.write(" " + Formatting.formatNGram(firstGram))
+    sentence += Formatting.formatGram(firstGram[0]) + ' '
+    sys.stdout.write(" " + Formatting.formatGram(firstGram[0]))
     context += firstGram
     prob += float(probabilities[firstGram][max(probabilities[firstGram])])
     i = ''
     maxGram = max(probabilities[firstGram])
-    sentence += Formatting.formatNGram(maxGram) + ' '
+    sentence += Formatting.formatGram(maxGram) + ' '
     context += maxGram
     prob *= float(probabilities[maxGram][max(probabilities[maxGram])])
     sys.stdout.flush()
-    sys.stdout.write(" " + Formatting.formatNGram(maxGram))
+    sys.stdout.write(" " + Formatting.formatGram(maxGram))
     while (True):
         if msvcrt.kbhit():
             key = ord(System.getKey())
             if (key == ENTER):
                 sys.stdout.flush()
-                if (Formatting.formatNGram(maxGram) != max(probabilities[maxGram])[-1]):
+                if (Formatting.formatGram(maxGram) != max(probabilities[maxGram])[-1]):
                     maxGram = max(probabilities[maxGram])
                 else:
                     maxGram = random.choice(ngrams)
                 context += maxGram
                 prob *= float(probabilities[maxGram][max(probabilities[maxGram])])
-                sentence += Formatting.formatNGram(maxGram[-1]) + ' '
-                sys.stdout.write(" " + Formatting.formatNGram(maxGram[-1]))
+                sentence += Formatting.formatGram(maxGram[-1]) + ' '
+                sys.stdout.write(" " + Formatting.formatGram(maxGram[-1]))
             elif (key == ESC):  # escape key
+                print("\n\nFormatted sentence: ", Formatting.formatSentence(sentence))
                 context = ()
                 prob = 0
                 manager(ngrams, probabilities)
             elif (key == ALT):
                 FileManagement.saveContext(filename, context, str(prob))
-    print("\n\nFormatted sentence: ", sentence)

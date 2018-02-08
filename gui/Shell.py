@@ -81,7 +81,7 @@ ________________________________________________________________________________
         Options:                                                                 |
           - [ENTER] for putting more words into the sentence                     |
           - [ESC] for stopping the generation and finish the sentence            |
-          - [ALT] for saving the context into the loaded file                      |
+          - [ALT] for saving the context into the loaded file                    |
                                                                                  |
         Exit:                                                                    |
           [CTRL] + [c]                                                           |
